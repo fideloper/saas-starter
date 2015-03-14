@@ -31,7 +31,7 @@ return [
 
 	'stripe' => [
 		'model'  => 'User',
-		'secret' => '',
+		'secret' => env('STRIPE_API_SECRET'),
 	],
 
 ];
