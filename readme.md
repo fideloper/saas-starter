@@ -14,6 +14,9 @@
 
 ### Command Logger
 
+You can log commands run, and add some meta data. This is useful for auditing user actions, or displaying actions users
+ have taken on their account.
+
 Wrapped around the Command Bus is the `App\Logger\CommandLogger`, which tests if the command implements the
 `App\Logger\Loggable` interface.
 
@@ -44,16 +47,24 @@ class SomeCommand extends Command implements SelfHandling, Loggable {
     /**
      * @return \App\User
      */
-    public function getUser() {}
+    public function getUser() {
+        return $this->user;
+    }
 
     /**
      * @return string
      */
-    public function getLabel() {}
+    public function getLabel() {
+        return 'user.updated';
+    }
 
     /**
      * @return array
      */
-    public function getData() {}
+    public function getData() {
+        return [
+            'foo' => 'bar'
+        ];
+    }
 }
 ```
