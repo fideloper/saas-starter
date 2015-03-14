@@ -145,6 +145,11 @@ return [
 		'App\Providers\EventServiceProvider',
 		'App\Providers\RouteServiceProvider',
 
+        /*
+         * Billing Service Providers...
+         */
+        'Laravel\Cashier\CashierServiceProvider',
+
 	],
 
 	/*
