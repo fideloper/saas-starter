@@ -4,6 +4,17 @@
 
 * Cashier ~4.0. Requires Stripe API on 2015-02-18 version and later.
 
+## Requirements/Setup
+
+### Email
+
+I recommend configuring a supported third party email system, such as Mandrill, Mailgun, etc.
+
+### Queue
+
+I recommend using Amazon SQS as a queue (it's cheap and highly reliable), but you can use the database, beanstalkd or 
+any other queue provider supported.
+
 ## Features
 
 ### Cashier
@@ -68,3 +79,12 @@ class SomeCommand extends Command implements SelfHandling, Loggable {
     }
 }
 ```
+
+## User Account Functions
+
+Logged in users have functioning forms to allow them to:
+
+* Change their name and/or email
+    * Triggers a notification email to old and new email address
+* Change their password
+    * Triggers a notification email to notify of the changed password
